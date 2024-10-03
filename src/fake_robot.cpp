@@ -68,7 +68,7 @@ std::vector<hardware_interface::CommandInterface> FakeRobot::export_command_inte
 }
 
 
-CallbackReturn FakeRobot::on_activate(const rclcpp_lifecycle::State & previous_state)
+CallbackReturn FakeRobot::on_activate(const rclcpp_lifecycle::State & /*previous_state*/)
 {
   RCLCPP_INFO(logger_, "Starting Controller...");
   //status_ = hardware_interface::status::STARTED;
@@ -76,7 +76,7 @@ CallbackReturn FakeRobot::on_activate(const rclcpp_lifecycle::State & previous_s
   return CallbackReturn::SUCCESS;
 }
 
-CallbackReturn FakeRobot::on_deactivate(const rclcpp_lifecycle::State & previous_state)
+CallbackReturn FakeRobot::on_deactivate(const rclcpp_lifecycle::State & /*previous_state*/)
 {
   RCLCPP_INFO(logger_, "Stopping Controller...");
   //status_ = hardware_interface::status::STOPPED;
@@ -84,7 +84,7 @@ CallbackReturn FakeRobot::on_deactivate(const rclcpp_lifecycle::State & previous
   return CallbackReturn::SUCCESS;
 }
 
-hardware_interface::return_type FakeRobot::read(const rclcpp::Time &time, const rclcpp::Duration &period)
+hardware_interface::return_type FakeRobot::read(const rclcpp::Time &/*time*/, const rclcpp::Duration &/*period*/)
 {
 
   // TODO fix chrono duration
@@ -103,7 +103,7 @@ hardware_interface::return_type FakeRobot::read(const rclcpp::Time &time, const 
   return return_type::OK;  
 }
 
-hardware_interface::return_type FakeRobot::write(const rclcpp::Time &time, const rclcpp::Duration &period)
+hardware_interface::return_type FakeRobot::write(const rclcpp::Time &/*time*/, const rclcpp::Duration &/*period*/)
 {
   // Set the wheel velocities to directly match what is commanded
 
